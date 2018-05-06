@@ -47,8 +47,15 @@ cc.Class({
         // loginGuestEventHandler.customEventData = "guest";
         // this.loginGuest.clickEvents.push(loginGuestEventHandler);
         console.log("loginScence onLoad--");
-        var guestLoginTxt = this.getComponent("cc.Label");
-        guestLoginTxt.string = "哈哈";
+
+        // get sub node
+        var label = cc.find("loginGuest/BtnGuestLabel", this.node);
+        var labelT = label.getComponent(cc.Label);
+        labelT.string = "GuestLogin";
+
+        label = cc.find("Canvas/loginSina/BtnSinaLabel");
+        labelT = label.getComponent(cc.Label);
+        labelT.string = "SinaLogin";
     },
     guestLogin:function (event, customData){
         console.log('clickGuest');
