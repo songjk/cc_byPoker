@@ -57,6 +57,10 @@ cc.Class({
         label = cc.find("Canvas/loginSina/BtnSinaLabel");
         labelT = label.getComponent(cc.Label);
         labelT.string = "SinaLogin";
+
+        var view = cc.find("privaceContent", this.node);
+        view.active = false;
+        view.setScale(cc.v2(0,0));
     },
     guestLogin:function (event, customData){
         console.log('clickGuest');
@@ -76,11 +80,19 @@ cc.Class({
     showPrivacyContent:function(event, customData){
         var view = cc.find("privaceContent", this.node);
         view.active = true;
+        var action = cc.scaleTo(0.2,1,1);
+        view.runAction(action);
     },
     //关闭用户协议内容
     closePrivacyContent:function(event, customData){
         var view = cc.find("privaceContent", this.node);
-        view.active = false;
+        
+        var action = cc.scaleTo(0.2,0,0);
+        var finished = cc.callFunc(function(){
+            view.active = false;
+        }, this, 1);
+        var sec = cc.sequence(action, finished);
+        view.runAction(sec);
     },
     start () {
         
