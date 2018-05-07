@@ -67,6 +67,11 @@ cc.Class({
         var action = cc.moveTo(2, 100, 100);
         this.loginSina.node.runAction(action);
     },
+    onPrivacyChanged:function(toggle, customEventData){
+        var action = cc.scaleTo(2, 2, 2);
+        var item = toggle.getComponent(cc.Toggle);
+        item.node.runAction(action);
+    },
     start () {
 
     },
