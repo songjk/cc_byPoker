@@ -27,6 +27,7 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
+        isAgreePivacy:false,
         loginGuest:{
             default:null,
             type:cc.Button,
@@ -67,13 +68,22 @@ cc.Class({
         var action = cc.moveTo(2, 100, 100);
         this.loginSina.node.runAction(action);
     },
+    // 用户协议点击
     onPrivacyChanged:function(toggle, customEventData){
-        var action = cc.scaleTo(2, 2, 2);
-        var item = toggle.getComponent(cc.Toggle);
-        item.node.runAction(action);
+        this.isAgreePivacy = item.isChecked;
+    },
+    //显示用户协议内容
+    showPrivacyContent:function(event, customData){
+        var view = cc.find("privaceContent", this.node);
+        view.active = true;
+    },
+    //关闭用户协议内容
+    closePrivacyContent:function(event, customData){
+        var view = cc.find("privaceContent", this.node);
+        view.active = false;
     },
     start () {
-
+        
     },
 
     // update (dt) {},
