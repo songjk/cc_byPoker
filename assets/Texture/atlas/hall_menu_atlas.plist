@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>aboutIcon.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,5}</string>
+                <key>spriteSize</key>
+                <string>{108,140}</string>
+                <key>spriteSourceSize</key>
+                <string>{150,150}</string>
+                <key>textureRect</key>
+                <string>{{611,1},{108,140}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>3 1 2 3 4 1 0 1 4 0 4 5</string>
+                <key>vertices</key>
+                <string>121 26 131 108 122 140 23 139 23 40 59 0</string>
+                <key>verticesUV</key>
+                <string>709 27 719 109 710 141 611 140 611 41 647 1</string>
+            </dict>
+            <key>coin.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{43,43}</string>
+                <key>spriteSourceSize</key>
+                <string>{43,43}</string>
+                <key>textureRect</key>
+                <string>{{641,349},{43,43}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>1 2 3 0 1 3</string>
+                <key>vertices</key>
+                <string>43 43 0 43 0 0 43 0</string>
+                <key>verticesUV</key>
+                <string>684 392 641 392 641 349 684 349</string>
+            </dict>
+            <key>hall_lis_btn.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-1}</string>
+                <key>spriteSize</key>
+                <string>{318,132}</string>
+                <key>spriteSourceSize</key>
+                <string>{318,146}</string>
+                <key>textureRect</key>
+                <string>{{321,284},{318,132}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>5 6 7 4 5 7 3 4 7 3 0 1 3 1 2 0 3 7</string>
+                <key>vertices</key>
+                <string>300 9 318 51 318 103 289 139 44 140 0 116 0 30 44 8</string>
+                <key>verticesUV</key>
+                <string>621 285 639 327 639 379 610 415 365 416 321 392 321 306 365 284</string>
+            </dict>
+            <key>hall_mtt_btn.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-0.5}</string>
+                <key>spriteSize</key>
+                <string>{318,133}</string>
+                <key>spriteSourceSize</key>
+                <string>{318,146}</string>
+                <key>textureRect</key>
+                <string>{{305,149},{318,133}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>2 6 7 4 5 6 3 4 6 2 3 6 0 1 2 0 2 7</string>
+                <key>vertices</key>
+                <string>318 47 318 117 277 137 11 140 0 89 0 18 51 8 299 7</string>
+                <key>verticesUV</key>
+                <string>623 189 623 259 582 279 316 282 305 231 305 160 356 150 604 149</string>
+            </dict>
+            <key>hall_sng_btn.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,1}</string>
+                <key>spriteSize</key>
+                <string>{318,136}</string>
+                <key>spriteSourceSize</key>
+                <string>{318,146}</string>
+                <key>textureRect</key>
+                <string>{{1,251},{318,136}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>2 6 7 4 5 6 3 4 6 2 3 6 0 1 2 0 2 7</string>
+                <key>vertices</key>
+                <string>318 47 318 117 277 137 11 140 0 89 0 18 51 8 298 4</string>
+                <key>verticesUV</key>
+                <string>319 294 319 364 278 384 12 387 1 336 1 265 52 255 299 251</string>
+            </dict>
+            <key>hall_start_btn.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{318,146}</string>
+                <key>spriteSourceSize</key>
+                <string>{318,146}</string>
+                <key>textureRect</key>
+                <string>{{291,1},{318,146}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>2 7 8 5 7 3 5 3 4 5 6 7 2 3 7 0 1 2 0 2 8</string>
+                <key>vertices</key>
+                <string>318 26 318 120 255 146 55 146 0 116 0 53 14 23 61 0 252 0</string>
+                <key>verticesUV</key>
+                <string>609 27 609 121 546 147 346 147 291 117 291 54 305 24 352 1 543 1</string>
+            </dict>
+            <key>hall_store.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0.5}</string>
+                <key>spriteSize</key>
+                <string>{106,101}</string>
+                <key>spriteSourceSize</key>
+                <string>{106,106}</string>
+                <key>textureRect</key>
+                <string>{{625,143},{106,101}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>4 5 6 1 2 4 2 3 4 1 4 6 0 1 6</string>
+                <key>vertices</key>
+                <string>106 12 106 47 94 102 9 103 0 41 0 23 48 2</string>
+                <key>verticesUV</key>
+                <string>731 153 731 188 719 243 634 244 625 182 625 164 673 143</string>
+            </dict>
+            <key>hall_task.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{3.5,2.5}</string>
+                <key>spriteSize</key>
+                <string>{99,101}</string>
+                <key>spriteSourceSize</key>
+                <string>{106,106}</string>
+                <key>textureRect</key>
+                <string>{{641,246},{99,101}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>1 2 3 0 1 3</string>
+                <key>vertices</key>
+                <string>106 101 7 101 7 0 106 0</string>
+                <key>verticesUV</key>
+                <string>740 347 641 347 641 246 740 246</string>
+            </dict>
+            <key>rank_bh.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{288,248}</string>
+                <key>spriteSourceSize</key>
+                <string>{288,248}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{288,248}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>1 2 3 0 1 3</string>
+                <key>vertices</key>
+                <string>288 248 0 248 0 0 288 0</string>
+                <key>verticesUV</key>
+                <string>289 249 1 249 1 1 289 1</string>
+            </dict>
+            <key>title_bg.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{282,89}</string>
+                <key>spriteSourceSize</key>
+                <string>{282,89}</string>
+                <key>textureRect</key>
+                <string>{{1,389},{282,89}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>2 3 4 1 2 4 0 1 4</string>
+                <key>vertices</key>
+                <string>282 9 282 89 0 89 0 0 273 0</string>
+                <key>verticesUV</key>
+                <string>283 398 283 478 1 478 1 389 274 389</string>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>hall_menu_atlas.png</string>
+            <key>size</key>
+            <string>{741,479}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:3c8357a3b30d33866eab607a30386c65:2a670a760ae942ad99f4047bc806496a:b58eafa83d794462f4cf2b9eb4aa7e1d$</string>
+            <key>textureFileName</key>
+            <string>hall_menu_atlas.png</string>
+        </dict>
+    </dict>
+</plist>

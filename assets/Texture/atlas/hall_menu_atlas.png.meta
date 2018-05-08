@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "430cc774-2083-4652-8b86-d793877bc6b5",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "hall_menu_atlas": {
+      "ver": "1.0.3",
+      "uuid": "6f861d32-35bd-428c-80d2-c6ac650b1c48",
+      "rawTextureUuid": "430cc774-2083-4652-8b86-d793877bc6b5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -1,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 739,
+      "height": 479,
+      "rawWidth": 741,
+      "rawHeight": 479,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

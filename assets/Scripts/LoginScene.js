@@ -64,8 +64,7 @@ cc.Class({
     },
     guestLogin:function (event, customData){
         console.log('clickGuest');
-        var action = cc.moveTo(2, 100, 100);
-        this.loginGuest.node.runAction(action);
+        cc.director.loadScene("hallScene");
     },
     sinaLogin:function (event, customData){
         console.log('clickSina');
@@ -82,6 +81,8 @@ cc.Class({
         view.active = true;
         var action = cc.scaleTo(0.2,1,1);
         view.runAction(action);
+
+        this.setPrivacyIneractable(false);
     },
     //关闭用户协议内容
     closePrivacyContent:function(event, customData){
@@ -93,6 +94,12 @@ cc.Class({
         }, this, 1);
         var sec = cc.sequence(action, finished);
         view.runAction(sec);
+        this.setPrivacyIneractable(true);
+    },
+    setPrivacyIneractable:function(flag){
+        var buttonLabel = cc.find("agreementToggle/privaceLabel");
+        var button = buttonLabel.getComponent(cc.Button);
+        button.interactable = flag;
     },
     start () {
         
