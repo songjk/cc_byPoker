@@ -36,9 +36,10 @@ cc.Class({
 
     // onLoad () {},
     setData:function(data){
-        cc.loader.loadRes(data.iconSF, cc.spriteFrame, function(err, sFrame){
-            this.icon.getComponent(cc.Sprite).spriteFrame = sFrame;
-        });
+        cc.loader.loadRes(data.iconSF, cc.SpriteFrame, function(err, sFrame){
+            this.icon.spriteFrame = sFrame;
+            cc.log("Load-Res-");
+        }.bind(this));
         this.itemName.string = data.itemName;
         this.win.string = data.itemWin;
     },

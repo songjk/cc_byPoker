@@ -1,7 +1,7 @@
 const friendData = [
     {
         iconSF:"head_poker",
-        itemName:"Jack",
+        itemName:"Jim",
         itemWin:"赢局：12",
     },
     {
@@ -11,22 +11,22 @@ const friendData = [
     },
     {
         iconSF:"hg_dealer",
-        itemName:"Jack",
+        itemName:"Steam",
         itemWin:"赢局：8",
     },
     {
         iconSF:"hg_dealer",
-        itemName:"Jack",
+        itemName:"Season",
         itemWin:"赢局：7",
     },
     {
         iconSF:"head_poker",
-        itemName:"Jack",
+        itemName:"Monday",
         itemWin:"赢局：6",
     },
     {
         iconSF:"hg_dealer",
-        itemName:"Jack",
+        itemName:"Dog",
         itemWin:"赢局：5",
     }
 ];

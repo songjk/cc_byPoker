@@ -8,35 +8,47 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 const friendDatas = require("friendData").rankData;
+var player = require("player").playerItem;
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        headIcon:cc.Sprite,
+        playerName:cc.Label,
+        playerMoney:cc.Label,
+        btnTask:cc.Button,
+        btnStore:cc.Button,
         ranList:{
             default:null,
             type:cc.ScrollView,
         },
+        playerItem:player,
         item:cc.Prefab,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
+    onLoad () {},
+    init:function(){
+        // this.playerName.string = "O(∩_∩)O哈哈~";
+        // this.playerMoney.string = "9999万块";
+        // cc.loader.load("http://www.qqzhi.com/uploadpic/2014-09-28/135325755.jpg", function(err, texture){
+        //     this.headIcon.spriteFrame.setTexture(texture);
+        // }.bind(this));
+        this.playerName.string = this.playerItem.playerName;
+        this.playerMoney.string = this.playerItem.playerMoney
+        cc.loader.load(this.playerItem.headIcon, function(err, texture){
+            this.headIcon.spriteFrame.setTexture(texture);
+        }.bind(this));
+        this.setFriendRankList();
+    },
+    onTaskClicked:function(){
+        cc.log("show hall task");
+    },
+    onStoreClicked:function(){
+        cc.log("show hall store");
+    },
+    setFriendRankList:function(){
         for(var i = 0; i<friendDatas.length; i++)
         {
             var data = friendDatas[i];
@@ -45,7 +57,6 @@ cc.Class({
             this.ranList.content.addChild(player);
         }
     },
-
     start () {
 
     },
