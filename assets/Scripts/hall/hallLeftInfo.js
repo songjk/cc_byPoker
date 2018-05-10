@@ -35,6 +35,13 @@ cc.Class({
         // cc.loader.load("http://www.qqzhi.com/uploadpic/2014-09-28/135325755.jpg", function(err, texture){
         //     this.headIcon.spriteFrame.setTexture(texture);
         // }.bind(this));
+        var num = cc.rand();
+        if (num > 11) {
+            this.playerItem.headIcon = "http://www.qqzhi.com/uploadpic/2014-09-28/135325880.jpg";
+        } else if(num > 10) {
+            this.playerItem.headIcon = "http://www.qqzhi.com/uploadpic/2014-09-28/135330636.jpg";
+        }
+        
         this.playerName.string = this.playerItem.playerName;
         this.playerMoney.string = this.playerItem.playerMoney
         cc.loader.load(this.playerItem.headIcon, function(err, texture){
