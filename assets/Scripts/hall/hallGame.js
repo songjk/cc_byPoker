@@ -7,8 +7,8 @@
 // Learn life-cycle callbacks:
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
-var httpRequest = require("httpRequest").requestManager;
 
+var postRepuests = require("netManager").postRepuest;
 cc.Class({
     extends: cc.Component,
 
@@ -35,11 +35,13 @@ cc.Class({
         // };
         // httpRequest.open("GET","https://www.baidu.com", true);
         // httpRequest.send();
-        httpRequest("https://www.baidu.com", 200000, function(data){
-            cc.log(data);
-        },function(data){
-            cc.log(data);
-        });
+        var param = {
+            appid : 1000,
+            appkey : "init",
+            curver : 140,
+            ddid : ""
+          }
+          postRepuests("Members.prelogin", param, "http://android-poker-cn.17c.cn/api/api.php", 20000);
     },
     start () {
 
