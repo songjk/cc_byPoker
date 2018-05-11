@@ -45,8 +45,10 @@ var XML_HTTP_REQUEST = function(url, timeout, successCallback, failedCallback, s
     }else{
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        request.setRequestHeader("api-v8", "1");
         request.setRequestHeader("X-API-VER", "8");
+
+        // 有head的时候需要设置如下内容
+        request.setRequestHeader("api-v8", "1");
         request.setRequestHeader("X-TUNNEL-VERIFY", "2.0.0&84&XdO9sQ8q4oDT5dMKvdiSWBnLWFD/lRmVCli9etgrEWf/2Ge9Z70rUIN6ktOO06AWs9Pl09OO06CEFtPl01Bn047ToISE4oDT5dOh2l4MOe4Mk61PoGhroYLTjtOghITOreTT5dOVDFAMEf+V047TORaCaqBofdPl04BnEXorgysRGQrY/72DGZK9egqVvRmVelCAvYOA/2e9047TOcgWaJNqoGh90+XTkiu9UMsKvXoRepIRgCu9WGcRy3qSCpWAGVi9y4CDgCvTjtOzk+6ErdPl0xyCttq6047TFtnJ3dqzrcjT5dMWRn3agq21yRZeHMigk9rk047TFtnJf+6ErdPl0xZGfdqCrbXZydOO0xbZyc6t5NPl0xERDCvTjtMWaLegFsi95K2gttPl05PkHK3TjtNeh9qEreSgk9rk0+XTHP+tULMcZ5UosxwKkig5HGdQoBnTjtNeoKHLs7Pk0+XTK3rlWArlZ//lWCvlGXrlkhHTjtOCoF6t0+XTtxaCyrYcFidf492gob3a2ra1RuTa047Tgq2TutrkttPl08/i2OLTjtPahK2CKoDigNPl04MZ/3oRlWcRa9h6EZVr/5XYEWuSGYNYaxkZClBnUBlngIMZ2NOO04QWT63I0+XTEVAZWC4KUFjTjtNTFrPT5dODGf96EZVnEWvYehGVa/+V2BFrkhmDWGsZGQpQZ1AZZ4CDGdjTjtMtKw/Ls7Pk0+XTz+LY4tOO0y3Jra2z0+XTEStQ047TLSoWs9Pl01BnWBGSkiuVWNM/&DnHtkqlsnbHyx18mYuHylzac7Fc=");
         if(typeof sendData == "string"){
             request.send(sendData);

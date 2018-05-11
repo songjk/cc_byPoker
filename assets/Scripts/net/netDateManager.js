@@ -1,28 +1,31 @@
 var httpRequest = require("httpRequest").requestManager;
- var myMD5 = require('NTLMd5');
+var myMD5 = require('NTLMd5');
 var appConfigs = require("appConfig").appConfigs;
 
 var packageMothodAndParam = function(mothod, params){
     var result = {
-        api: 25,
-        langtype: 1,
-        method : mothod,
-        //method: "Members.prelogin",
         mid: 0,
-        mtkey : "",
-        protocol : 1,
-        sid :  "117",
-        time : 1525924825,
-        unid : "140",
+        protocol : appConfigs.protocol,
+        api: appConfigs.api,
+        time : Date.parse(new Date()) / 1000,
+        sid :  appConfigs.sid,
+        langtype: appConfigs.langtype,
         username : "BOYAA_USER",
-        version : "6.2.140",
-        param:params,
-        vkey: "",
+        version : appConfigs.version,
+        mtkey : "",
+        unid : appConfigs.unid,
+        method : mothod,
+        vkey: appConfigs.mtkey,
+        param:{},
     };
-    result.vkey = md5("M");
+    var newkey = Object.keys(params);
+    for (var i = 0; i < newkey.length; i++) {//遍历newkey数组
+        result.param[newkey[i]] = params[newkey[i]];
+    }
+    result.vkey = md5(appConfigs.vkey + "M");
     var sigInfo = joins(result, appConfigs.mtkey);
     result.sig = md5(sigInfo);
-    result = "api=" + JSON.stringify(result);
+    result = "api=" + encodeURIComponent(JSON.stringify(result));
     
     return result;
 };
@@ -30,15 +33,16 @@ var packageMothodAndParam = function(mothod, params){
 var joins = function(data, mtkey)
 {
     var str = appConfigs.key;
-    if(!data || (data instanceof Boolean))
+    if(typeof data == "undefined" || (typeof data === "boolean"))
     {
         return str;
     }
     else if(typeof data == "number" || typeof data == "string" )
     {
         var headstr = String(data);
-        var patrn = /[^0-9a-zA-Z]/;
-        headstr.replace(patrn, "");
+        var patrn = /[^0-9a-zA-Z]/g;
+        headstr = headstr.replace(patrn, "");
+        headstr =headstr.replace(/[`~!@#\$%\^\&\*\(\)_\+<>\?:"\{\},\.\\\/;'\[\]]/g,"");
         str = str + "T" + mtkey + headstr;
     }
     else if(data instanceof Array )

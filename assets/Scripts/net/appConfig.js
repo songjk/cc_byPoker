@@ -1,4 +1,5 @@
 var appConfigs = {
+    urlstr:"http://android-poker-cn.17c.cn/api/api.php",
     api: 25,
     langtype: 1,
     //method: "Members.prelogin",
@@ -6,10 +7,9 @@ var appConfigs = {
     mtkey : "",
     protocol : 1,
     sid :  "117",
-    time : 1525924825,
     unid : "140",
     username : "BOYAA_USER",
-    version : "6.2.140",
+    version : "6.2.150",
     key:"C",
     vkey:""
 };
