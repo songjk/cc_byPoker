@@ -9,6 +9,7 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 const friendDatas = require("friendData").rankData;
 var player = require("player").playerItem;
+var invokeOC = require("invokeNativeFunc");
 cc.Class({
     extends: cc.Component,
 
@@ -51,9 +52,11 @@ cc.Class({
     },
     onTaskClicked:function(){
         cc.log("show hall task");
+        invokeOC.showAlertView("Task is not ready");
     },
     onStoreClicked:function(){
         cc.log("show hall store");
+        invokeOC.showAlertView("Store is not ready");
     },
     setFriendRankList:function(){
         for(var i = 0; i<friendDatas.length; i++)

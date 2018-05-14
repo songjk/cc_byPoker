@@ -7,7 +7,7 @@
 // Learn life-cycle callbacks:
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
-
+var invokeOC = require("invokeNativeFunc");
 cc.Class({
     extends: cc.Component,
 
@@ -68,8 +68,7 @@ cc.Class({
     },
     sinaLogin:function (event, customData){
         console.log('clickSina');
-        var action = cc.moveTo(2, 100, 100);
-        this.loginSina.node.runAction(action);
+        invokeOC.loginWithType("5");
     },
     // 用户协议点击
     onPrivacyChanged:function(toggle, customEventData){
