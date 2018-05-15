@@ -22,7 +22,8 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
 ****************************************************************************/
-
+#import "WXApi.h"
+#import "WeChatSSO.h"
 #import "AppController.h"
 #import "cocos2d.h"
 #import "AppDelegate.h"
@@ -30,7 +31,7 @@
 #import "platform/ios/CCEAGLView-ios.h"
 
 #import "cocos-analytics/CAAgent.h"
-
+#import "LoginManager.h"
 using namespace cocos2d;
 
 @implementation AppController
@@ -82,7 +83,7 @@ static AppDelegate* s_sharedApplication = nullptr;
     [window makeKeyAndVisible];
 
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-
+    [WXApi registerApp:WECHAT_APPID withDescription:@"扑克"];
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
     cocos2d::GLView *glview = cocos2d::GLViewImpl::createWithEAGLView((__bridge void *)_viewController.view);
     cocos2d::Director::getInstance()->setOpenGLView(glview);
@@ -134,6 +135,14 @@ static AppDelegate* s_sharedApplication = nullptr;
     if (CAAgent.isInited) {
         [CAAgent onResume];
     }
+}
+//4.2以后
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    NSLog(@"跳转到URL schema中配置的地址 4.2以后-->%@",url);//跳转到URL schema中配置的地址
+    if([LoginManager handleOpenURL:url]){ //处理从微信客户端跳转回来的url。返回 TRUE 表示成功处理了
+            return YES;
+    }
+    return YES;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

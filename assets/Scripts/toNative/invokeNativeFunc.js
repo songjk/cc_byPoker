@@ -1,11 +1,15 @@
 var ShowAlertView = function(msg)
 {
-    jsb.reflection.callStaticMethod("nativeOcClass", "showAlertView:", msg);
+    if(cc.sys.isNative && cc.sys.os == cc.sys.OS_IOS){
+        jsb.reflection.callStaticMethod("nativeOcClass", "showAlertView:", msg);
+    }
 };
 
 var LoginWithType = function(iType)
 {
-    jsb.reflection.callStaticMethod("nativeOcClass", "loginWithType:", iType);
+    if(cc.sys.isNative && cc.sys.os == cc.sys.OS_IOS){
+        jsb.reflection.callStaticMethod("nativeOcClass", "loginWithType:", iType);
+    }
 };
 module.exports = {
     showAlertView : ShowAlertView,

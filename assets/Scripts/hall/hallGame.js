@@ -7,8 +7,6 @@
 // Learn life-cycle callbacks:
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
-var phpMethods = require("phpMethod").phpMethodList;
-var postRepuests = require("netManager").postRepuest;
 cc.Class({
     extends: cc.Component,
 
@@ -22,18 +20,6 @@ cc.Class({
         this.leftInfo = this.leftInfo.getComponent("hallLeftInfo")
 
         this.leftInfo.init();
-
-        this.requestHallInfo()
-        
-    },
-    requestHallInfo:function(){
-        var param = {
-            appid : 1000,
-            appkey : "init",
-            curver : 150,
-            ddid : ""
-          }
-          postRepuests(phpMethods.method_Prelogin, param);
     },
     start () {
 

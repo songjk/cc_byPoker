@@ -7,7 +7,16 @@ var requestWithMethodAndParam = function(method, param, timeout, successCallback
     var body = makeBodys(method, param)
 cc.log("requestWithMethodAndParam body :" + body);
     httpRequest(appConfigs.urlstr, 20000, function(data){
-        cc.log(data);
+        cc.log(data)
+        var result = JSON.parse(data);
+        if(typeof successCallback != "undefined"){
+            successCallback(result);
+            cc.director.loadScene("hallScene");
+        }else{
+            if(typeof failedCallback != "undefined"){
+                failedCallback("请求失败");
+            }
+        }
     },function(data){
         cc.log(data);
     }, body);

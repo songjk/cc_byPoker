@@ -2,6 +2,61 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.by.texas-cn</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wb2930167434</string>
+				<string>app1249967854</string>
+				<string>boyaaADCenter10008</string>
+				<string>tencent1150003730</string>
+				<string>wxc07ff85e06198e46</string>
+				<string>QQ000059DE</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>tencentApiIdentifier</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tencent1150003730content</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>prefs</string>
+			</array>
+		</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>mqqapi</string>
+		<string>weixin</string>
+		<string>wechat</string>
+		<string>mqq</string>
+		<string>wtloginmqq2</string>
+		<string>mqqopensdkapiV3</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqwpa</string>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mqzone</string>
+		<string>sinaweibo</string>
+		<string>sinaweibohd</string>
+		<string>sinaweibosso</string>
+		<string>sinaweibohdsso</string>
+		<string>weibosdk</string>
+		<string>weibosdk2.5</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>

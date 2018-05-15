@@ -7,6 +7,7 @@ var appConfigs = {
     mtkey : "",
     protocol : 1,
     sid :  "117",
+    wetChatSid : "355",
     unid : "140",
     username : "BOYAA_USER",
     version : "6.2.150",

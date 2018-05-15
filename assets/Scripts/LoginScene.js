@@ -8,6 +8,7 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 var invokeOC = require("invokeNativeFunc");
+var loginManager = require("loginManage");
 cc.Class({
     extends: cc.Component,
 
@@ -61,6 +62,13 @@ cc.Class({
         var view = cc.find("privaceContent", this.node);
         view.active = false;
         view.setScale(cc.v2(0,0));
+
+        this.preLogin();
+    },
+    preLogin:function()
+    {
+        var loginManage = new loginManager();
+        loginManage.preLogin();
     },
     guestLogin:function (event, customData){
         console.log('clickGuest');

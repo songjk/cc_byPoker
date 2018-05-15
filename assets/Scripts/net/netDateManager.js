@@ -8,7 +8,7 @@ var packageMothodAndParam = function(mothod, params){
         protocol : appConfigs.protocol,
         api: appConfigs.api,
         time : Date.parse(new Date()) / 1000,
-        sid :  appConfigs.sid,
+        sid :  appConfigs.wetChatSid,
         langtype: appConfigs.langtype,
         username : "BOYAA_USER",
         version : appConfigs.version,

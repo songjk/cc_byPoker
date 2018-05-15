@@ -1,29 +1,10 @@
 //
 //  LoginManager.m
-//  template
-//
-//  Created by 兴斌 侯 on 3/22/16.
-//
-//
-
-extern "C"
-{
-    const char* dict_get_string ( const char* strGroup, const char* strKey );
-    int dict_get_int ( const char* strGroup, const char* strKey, int iDefaultValue );
-    int dict_set_string ( const char* strGroup, const char* strKey, const char* strValue );
-    int dict_set_int ( const char* strGroup, const char* strKey, const int iValue );
-    int dict_set_double ( const char* strGroup, const char* strKey, double fValue );
-    double dict_get_double ( const char* strGroup, const char* strKey, double fValue );
-    int sys_set_string(const char* strKey, const char* strValue);
-    int sys_set_int(const char* strKey, int iDefaultValue);
-    int call_lua ( const char* strFunctionName );
-}
 
 
 #import "LoginManager.h"
 #import "utility.h"
-//#import "LuaEvent.h"
-//#import "WeiboSDK.h"
+#import "OCtoJS.h"
 
 #define PHP_RELOGIN_CODE      -5
 
@@ -69,6 +50,7 @@ static LoginManager * loginManager;
 
 
 -(void)userLoginWithType:(LoginType)loginType{
+    SetLoginType(loginType);
     switch (loginType) {
         case Login_WeChat:
             [self userLoginWithWeChat];
@@ -97,11 +79,9 @@ static LoginManager * loginManager;
 }
 
 -(void)resetThirdPartyLoginWithType:(LoginType)loginType errorCode:(int)errorCode{
-    switch (loginType) {    //暂时需求只有微信和新浪的需求
-        case Login_Sina:
+    switch (loginType) {
         case Login_WeChat:
         case Login_QQ:
-        case Login_BoYaa:
         {
             [self userLogoutWithType:loginType];    //删除登出
             if(errorCode == PHP_RELOGIN_CODE){
@@ -130,7 +110,7 @@ static LoginManager * loginManager;
                             data.accessToken,@"accessToken",
                             data.openID,@"openid",
                             nil];
-//    SEND_DATA_TOLUA(@"login_Weixin",params);
+    [OCtoJS loginWechatWithToken:[params objectForKey:@"accessToken"] openid:[params objectForKey:@"openid"]];
 }
 
 #pragma mark--WeChatSSODelegate
