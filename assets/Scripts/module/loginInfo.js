@@ -2,6 +2,7 @@
 
 var LoginInfos = cc.Class({
     wetchatToken:"",
+    wetchatOpenidJ:"",
     statics: {
         _instance: null,
     },

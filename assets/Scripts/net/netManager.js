@@ -11,7 +11,6 @@ cc.log("requestWithMethodAndParam body :" + body);
         var result = JSON.parse(data);
         if(typeof successCallback != "undefined"){
             successCallback(result);
-            cc.director.loadScene("hallScene");
         }else{
             if(typeof failedCallback != "undefined"){
                 failedCallback("请求失败");

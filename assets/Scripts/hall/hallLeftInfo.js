@@ -7,9 +7,11 @@
 // Learn life-cycle callbacks:
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
+var AccountInfo = require("accountInfo");
 const friendDatas = require("friendData").rankData;
 var player = require("player").playerItem;
 var invokeOC = require("invokeNativeFunc");
+var HallManager = require("hallManager");
 cc.Class({
     extends: cc.Component,
 
@@ -31,24 +33,44 @@ cc.Class({
 
     onLoad () {},
     init:function(){
-        // this.playerName.string = "O(∩_∩)O哈哈~";
-        // this.playerMoney.string = "9999万块";
-        // cc.loader.load("http://www.qqzhi.com/uploadpic/2014-09-28/135325755.jpg", function(err, texture){
+        // var num = cc.rand();
+        // if (num > 11) {
+        //     this.playerItem.headIcon = "http://www.qqzhi.com/uploadpic/2014-09-28/135325880.jpg";
+        // } else if(num > 10) {
+        //     this.playerItem.headIcon = "http://www.qqzhi.com/uploadpic/2014-09-28/135330636.jpg";
+        // }
+        
+        // this.playerName.string = this.playerItem.playerName;
+        // this.playerMoney.string = this.playerItem.playerMoney
+        // cc.loader.load(this.playerItem.headIcon, function(err, texture){
         //     this.headIcon.spriteFrame.setTexture(texture);
         // }.bind(this));
-        var num = cc.rand();
-        if (num > 11) {
-            this.playerItem.headIcon = "http://www.qqzhi.com/uploadpic/2014-09-28/135325880.jpg";
-        } else if(num > 10) {
-            this.playerItem.headIcon = "http://www.qqzhi.com/uploadpic/2014-09-28/135330636.jpg";
+
+        this.setFriendRankList();
+
+        this.playerName.string = AccountInfo._instance.playerName;
+        this.playerMoney.string = String(AccountInfo._instance.money);
+        var url = AccountInfo._instance.iconUrl;
+        if(typeof url !== "string")
+        {
+            url = "http://www.qqzhi.com/uploadpic/2014-09-28/135330636.jpg";
+        }
+        var length = url.length;
+        var imageType = url.substring(length-3, length);
+        cc.log("initPlayerInfo:", url);
+        if(imageType == "jpg" || imageType == "png" || imageType == "peg")
+        {
+            cc.loader.load(url, function(err, texture){
+                this.headIcon.spriteFrame.setTexture(texture);
+            }.bind(this));
+        }
+        else
+        {
+            cc.loader.load({url:url, type:"jpg"}, function(err, texture){
+                this.headIcon.spriteFrame.setTexture(texture);
+            }.bind(this));
         }
         
-        this.playerName.string = this.playerItem.playerName;
-        this.playerMoney.string = this.playerItem.playerMoney
-        cc.loader.load(this.playerItem.headIcon, function(err, texture){
-            this.headIcon.spriteFrame.setTexture(texture);
-        }.bind(this));
-        this.setFriendRankList();
     },
     onTaskClicked:function(){
         cc.log("show hall task");
@@ -66,6 +88,7 @@ cc.Class({
             player.getComponent("hallFriendItem").setData(data);
             this.ranList.content.addChild(player);
         }
+        HallManager._instance.requestHallRankList()
     },
     start () {
 

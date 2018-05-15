@@ -3,6 +3,7 @@ var loginInfo = require("loginInfo");
 var phpMethods = require("phpMethod").phpMethodList;
 var postRepuests = require("netManager").postRepuest;
 var invokeOC = require("invokeNativeFunc");
+var AccountInfo = require("accountInfo");
 var LoginManage = cc.Class({
     loginWechat: function()
     {
@@ -25,6 +26,8 @@ var LoginManage = cc.Class({
                 if(mid > 0)
                 {
                     invokeOC.showAlertView("login successful");
+                    AccountInfo._instance.updateLoginInfo(ret);
+                    cc.director.loadScene("hallScene");
                 }
                 else
                 {
