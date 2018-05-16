@@ -36,12 +36,29 @@ cc.Class({
 
     // onLoad () {},
     setData:function(data){
-        cc.loader.loadRes(data.iconSF, cc.SpriteFrame, function(err, sFrame){
-            this.icon.spriteFrame = sFrame;
-            cc.log("Load-Res-");
-        }.bind(this));
+        var Url = data.iconSF;
+        if(typeof Url !== "string")
+        {
+            Url = "http://www.qqzhi.com/uploadpic/2014-09-28/135330636.jpg";
+        }
+        var length = Url.length;
+        var imageType = Url.substring(length-3, length);
+        cc.log("initPlayerInfo:", Url);
+        if(imageType == "jpg" || imageType == "png" || imageType == "peg" || imageType == "gif")
+        {
+            cc.loader.load(Url, function(err, texture){
+                this.icon.spriteFrame.setTexture(texture);
+            }.bind(this));
+        }
+        else
+        {
+            cc.loader.load({url:Url, type:"jpg"}, function(err, texture){
+                this.icon.spriteFrame.setTexture(texture);
+            }.bind(this));
+        }
+        
         this.itemName.string = data.itemName;
-        this.win.string = data.itemWin;
+        this.win.string = "赢局：" + data.itemWin;
     },
     start () {
 

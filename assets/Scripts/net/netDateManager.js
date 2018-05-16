@@ -1,7 +1,7 @@
 var httpRequest = require("httpRequest").requestManager;
 var myMD5 = require('NTLMd5');
 var appConfigs = require("appConfig").appConfigs;
-
+var AccountInfo = require("accountInfo");
 var packageMothodAndParam = function(mothod, params){
     var result = {
         mid: 0,
@@ -22,7 +22,7 @@ var packageMothodAndParam = function(mothod, params){
     for (var i = 0; i < newkey.length; i++) {//遍历newkey数组
         result.param[newkey[i]] = params[newkey[i]];
     }
-    result.vkey = md5(appConfigs.vkey + "M");
+    result.vkey = md5(AccountInfo._instance.vkey + "M");
     var sigInfo = joins(result, appConfigs.mtkey);
     result.sig = md5(sigInfo);
     result = "api=" + encodeURIComponent(JSON.stringify(result));

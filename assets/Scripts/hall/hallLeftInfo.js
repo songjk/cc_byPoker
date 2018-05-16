@@ -9,7 +9,7 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 var AccountInfo = require("accountInfo");
 const friendDatas = require("friendData").rankData;
-var player = require("player").playerItem;
+// var player = require("player").playerItem;
 var invokeOC = require("invokeNativeFunc");
 var HallManager = require("hallManager");
 cc.Class({
@@ -25,7 +25,7 @@ cc.Class({
             default:null,
             type:cc.ScrollView,
         },
-        playerItem:player,
+        // playerItem:player,
         item:cc.Prefab,
     },
 
@@ -81,14 +81,24 @@ cc.Class({
         invokeOC.showAlertView("Store is not ready");
     },
     setFriendRankList:function(){
-        for(var i = 0; i<friendDatas.length; i++)
+        var resultData = [];
+        HallManager._instance.requestHallRankList(function(data){
+            if(data && data instanceof Array )
+            {
+                resultData = data;
+            }
+            else
+            {
+                resultData = friendDatas;
+            }
+        for(var i = 0; i<resultData.length; i++)
         {
-            var data = friendDatas[i];
+            var data = resultData[i];
             var player = cc.instantiate(this.item);
             player.getComponent("hallFriendItem").setData(data);
             this.ranList.content.addChild(player);
         }
-        HallManager._instance.requestHallRankList()
+        }.bind(this));
     },
     start () {
 
